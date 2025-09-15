@@ -57,6 +57,7 @@ header{
     background-color: #FF4343;
     padding: 10px 20px;
 }
+
 .nav.show{
     display: flex;
     flex-direction: column;
@@ -70,7 +71,7 @@ header{
     margin-left: 20px;
     padding-right: 20px;
 }
-.burger__example {
+.burger_example {
     display: none;
     padding: 9px 2px;
     background: none;
@@ -78,6 +79,7 @@ header{
     cursor: pointer;
 }
 .burger__item{
+    display: none;
     display: block;
     width: 28px;
     height: 3px;
@@ -828,6 +830,10 @@ footer h2{
 } 
     
 @media (max-width: 768px) {
+    
+    .header__top span{
+        display: none;
+    }
     header {
         height: auto;
         padding-bottom: 20px;

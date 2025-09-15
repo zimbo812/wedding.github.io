@@ -1,25 +1,3 @@
-$(function(){
-    let header=$("#header");
-    let header_top=$("#header_top");
-    let headerH=header.height();
-    
-
-
-    let scrollPos=$(this).scrollTop();
-
-$(window).on("scroll", function(){
-    scrollPos=$(this).scrollTop();
-    if(scrollPos>headerH){
-        header_top.addClass("fixed");
-    }
-    else{
-        header_top.removeClass("fixed");
-    }
-    // console.log(scrollPos);
-});
-// console.log(scrollPos);
-
-
 const carousel = document.getElementById('carusel');
 const images = document.querySelectorAll('.img_block');
 let currentIndex = 0;
@@ -80,8 +58,37 @@ window.addEventListener('load', () => {
 });
 
 updateCarousel();
+
+
+$(function(){
+    let header=$("#header");
+    let header_top=$("#header_top");
+    let headerH=header.height();
+    let scrollPos=$(this).scrollTop();
+
+$(window).on("scroll", function(){
+    headerH=header.height();
+    scrollPos=$(this).scrollTop();
+    if(scrollPos>headerH){
+        header_top.addClass("fixed");
+    }
+    else{
+        header_top.removeClass("fixed");
+    }
+    // console.log(scrollPos);
 });
-
-
-
-
+// console.log(scrollPos);
+});
+$("[data-scroll]").on("click",function(){
+    event.preventDefault();
+    let elementID=$(this).data('scroll');
+    console.log(elementID);
+});
+let elementOffset=$(elementID).offset().top;
+$("html, body").animate({
+    scrollTop:elementOffset -70
+});
+navToggle.on("click", function(event){
+    event.preventDefault();
+    nav.toggleClass("show");
+});
